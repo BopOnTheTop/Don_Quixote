@@ -30,4 +30,15 @@ You work hard, for Alonso not to starve. And you can get some benefits, as it ap
 Be **realistic** and wise, so the story of El ingenioso idalho don Quixote de LaMancha, and his brave squire, Senor
 Sancho Panza, **continues**...
 
-### Installation:
+### Now seriously.
+
+I've planned a list of supported commands:
+    * /help -- kinda obvious
+    * /windmills -- Say random stuff.
+    * /strange_windmills -- Say random philosophical stuff.
+    * /what -- Repeat last message. Or notification in [n] minutes. (Don't know why, but might be useful)
+    * /trabajo -- Send a notification to linked device.
+    * /pendejo -- Ping you in a while with a message.
+    * /film -- At the bottom. Don't have ideas about impl. this stuff
+    * /
+

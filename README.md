@@ -33,6 +33,7 @@ Sancho Panza, **continues**...
 ### Now seriously.
 
 I've planned a list of supported commands:
+
     * /help -- kinda obvious
     * /windmills -- Say random stuff.
     * /strange_windmills -- Say random philosophical stuff.

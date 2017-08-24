@@ -6,4 +6,4 @@ If you would  like some features added to this project - feel free to fork and c
 
 ![alt text][logo]
 
-[logo]: https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Sancho?"
+[logo]: https://github.com/BopOnTheTop/Don_Quixote/blob/master/donquixote.png?raw=true "Sancho?"

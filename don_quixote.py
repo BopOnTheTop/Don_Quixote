@@ -4,16 +4,76 @@ from __future__ import print_function
 from __future__ import division
 import time
 import logging
-import telegram as tg
+from telegram.ext import Updater
+from telegram.ext import CommandHandler
+from pathlib import Path
+
+
+
 
 configs = [
-    "/etc/don_quixote/settings.conf",
-    "./settings.conf"
-]
+    "./settings.conf",
+    "/etc/don_quixote/settings.conf"
 
+]
+settings = {}
+localization = {}
 def read_settings():
+
+    for config in configs:
+        config_path = Path(config)
+        if config_path.is_file():
+            exec(open(config).read(), settings)
+    #checking if  needed tokens exist
+    if not "telegram_token" in settings:
+        exit(1)
+    elif not "sancho_disguise" in settings:
+        exit(1)
+    else:
+        #print(settings['sancho_disguise'], settings['telegram_token'])
+        logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s', level=logging.INFO)
+        localization_path = Path(settings['localization']+".py")
+        if localization_path.is_file():
+            exec(open(settings['localization']+".py").read(), localization)
+
+
+def help(bot, update):
+    pass
+
+
+def start(bot, update):
+    bot.send_message(chat_id=update.message.chat_id, text=sancho_hello)
+
+
+def windmills(bot, update):
+    pass
+
+
+def strange_windmills(bot, update):
+    pass
+
+
+def what(bot, update):
+    pass
+
+
+def trabajo(bot, update):
+    pass
+
+
+def pendejo(bot, update):
+    pass
+
+
+def film(bot, update):
     pass
 
 
 def main():
-    pass
+    updater = Updater(token=settings['token'])
+    dispatcher = updater.dispatcher
+
+    start_handler = CommandHandler('start', start)
+    dispatcher.add_handler(start_handler)
+
+read_settings()

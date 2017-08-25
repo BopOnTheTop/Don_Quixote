@@ -38,14 +38,15 @@ def read_settings():
 
 
 def help(bot, update):
-    pass
+    bot.send_message(chat_id=update.message.chat_id, text=localization['help'])
 
 
 def start(bot, update):
-    bot.send_message(chat_id=update.message.chat_id, text=sancho_hello)
+    bot.send_message(chat_id=update.message.chat_id, text=localization['sancho_hello'])
 
 
 def windmills(bot, update):
+    bot.send_message(chat_id=update.message.chat_id, text=msg)
     pass
 
 
@@ -61,7 +62,12 @@ def trabajo(bot, update):
     pass
 
 
-def pendejo(bot, update):
+def pendejo(bot, update, args):
+    time_mins = args[0]
+    message_arg = args[1:]
+    message = 'Ти сказав мені: "{message}".\nЩо би це значило?'.format(message=message_arg)
+    time.sleep(int(time_mins)*60)
+    bot.send_message(chat_id=update.message.chat_id, text=message)
     pass
 
 
@@ -70,10 +76,21 @@ def film(bot, update):
 
 
 def main():
-    updater = Updater(token=settings['token'])
+
+    updater = Updater(token=settings['telegram_token'])
     dispatcher = updater.dispatcher
 
     start_handler = CommandHandler('start', start)
     dispatcher.add_handler(start_handler)
 
+    help_handler = CommandHandler('help', help)
+    dispatcher.add_handler(help_handler)
+
+    pendejo_handler = CommandHandler('pendejo', pendejo, pass_args=True)
+    dispatcher.add_handler(pendejo_handler)
+    updater.start_polling()
+
 read_settings()
+main()
+
+

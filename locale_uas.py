@@ -10,3 +10,9 @@ help = """
 /pendejo [ЧАС] [МЕССЕДЖ] - Вивести Месседж через вказаний час у хв.  
 /start - старт як старт. 
 """
+pendeho_echo = 'Ти сказав мені: "{message}".\nЩо би це значило?'
+pendejo_cancel = "Га?"
+pendejo_start = "Знову щось забув? \n Коли тобі нагадати?"
+pendejo_time = "І що ж тобі нагадати?"
+pendejo_msg = "{time} {text}"
+something_went_wrong = "Га?"

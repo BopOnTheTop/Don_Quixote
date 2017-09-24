@@ -9,6 +9,7 @@ from telegram.ext import CommandHandler, ConversationHandler, MessageHandler, Fi
 from pathlib import Path
 from settings import settings,localization
 from pendejo import pendejo_handler
+import os
 
 def help(bot, update):
     bot.send_message(chat_id=update.message.chat_id, text=localization['help'])
@@ -19,6 +20,7 @@ def start(bot, update):
 
 
 def windmills(bot, update):
+    msg = os.popen("fortune ").read()
     bot.send_message(chat_id=update.message.chat_id, text=msg)
     pass
 
@@ -63,8 +65,8 @@ def main():
     help_handler = CommandHandler('help', help)
     dispatcher.add_handler(help_handler)
 
-
-
+    windmills_handler = CommandHandler('windmills', windmills)
+    dispatcher.add_handler(windmills_handler)
     dispatcher.add_handler(pendejo_handler)
     dispatcher.add_error_handler(error)
 
